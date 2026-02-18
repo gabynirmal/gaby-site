@@ -1,44 +1,27 @@
-import { Heading, Flex, Box } from "@chakra-ui/react";
-import { nameColors } from "../lib/constants";
+import { Box, Flex, Text, Icon, Heading } from "@chakra-ui/react";
 import Link from "next/link";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { IoLogoGithub } from "react-icons/io";
+import InfoButtons from "./InfoButtons";
 
 export default function Home() {
-  const name = "GABRIELA NIRMAL";
-  const namePaths: Record<string, string> = {
-    G: "/greetings",
-    A: "/about-me",
-    B: "TBD",
-    R: "/resume",
-    I: "TBD",
-    E: "TBD",
-    L: "/lookbook",
-    N: "/network",
-    M: "/music-i-like",
-  };
   return (
-    <Flex as="main" h="100vh" alignItems="center" justifyContent="center">
-      {name.split("").map((letter, idx) =>
-        letter === " " ? (
-          <Box key={idx} minWidth="2rem" />
-        ) : (
-          <Link key={idx} href={namePaths[letter]}>
-            <Heading
-              as="h1"
-              fontSize="7xl"
-              fontWeight="bold"
-              fontFamily="kablammo-variable"
-              letterSpacing=".25rem"
-              fontVariationSettings={`'MORF' ${0}`}
-              color={nameColors[letter]}
-              transition={"font-variation-settings 500ms ease"}
-              _hover={{ fontVariationSettings: `'MORF' ${60}` }}
-              cursor="pointer"
-            >
-              {letter}
-            </Heading>
-          </Link>
-        )
-      )}
-    </Flex>
+    <Box id="gn-home" px="20" py="10">
+      {/* Intro Para */}
+      <Flex pt="200px" direction="column" gap="6">
+        <Heading size="6xl">Welcome</Heading>
+        <Text textStyle="xl" maxWidth="750px" borderLeft="4px solid" pl="4">
+          I'm a <strong>Computer Science</strong> major with a concentration in{" "}
+          <strong>AI</strong> and a minor in{" "}
+          <strong>Global Fashion Studies</strong> at Northeastern University. I
+          love working on projects that intertwine my passions for tech and
+          fashion. I'm also a <strong>crochet designer</strong>, and am
+          currently working on a web app that will help me create patterns for
+          my custom designs!
+        </Text>
+      </Flex>
+      <InfoButtons pt="8" />
+    </Box>
   );
 }
