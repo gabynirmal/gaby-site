@@ -65,9 +65,10 @@ export default function Contact() {
       py="10"
       alignItems="center"
       justifyContent="center"
-      gap="20"
+      direction={{ base: "column-reverse", md: "row" }}
+      gap={{ base: "10", md: "20" }}
     >
-      <InfoButtons direction="column" px="90px" />
+      <InfoButtons direction={{ base: "row", md: "column" }} px="90px" />
       <form onSubmit={formik.handleSubmit}>
         <Flex direction="column" gap="4" minW="500px">
           <Field.Root required>
@@ -140,7 +141,7 @@ export default function Contact() {
               borderRadius="xl"
               borderColor="var(--foreground)"
               placeholder="Hi I'd love to work with you Gaby! You're so cool, smart, and talented."
-              h="300px"
+              h={{ base: "200px", md: "300px" }}
               name="message"
               value={formik.values.message}
               onChange={formik.handleChange}

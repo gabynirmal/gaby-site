@@ -17,7 +17,14 @@ import { IoLogoVercel } from "react-icons/io5";
 export default function Projects() {
   return (
     <Box id="gn-projects" px="20" py="10">
-      <Grid templateColumns="repeat(3, 1fr)" gap="6">
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          lg: "repeat(2, 1fr)",
+          "2xl": "repeat(3, 1fr)",
+        }}
+        gap="6"
+      >
         <GridItem>
           <Card.Root
             role="group"

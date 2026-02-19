@@ -16,7 +16,15 @@ import { FaInstagram } from "react-icons/fa6";
 export default function Projects() {
   return (
     <Box id="gn-projects" px="20" py="10">
-      <Grid templateColumns="repeat(4, 1fr)" gap="6">
+      <Grid
+        templateColumns={{
+          base: "repeat(1, fr)",
+          lg: "repeat(2, 1fr)",
+          xl: "repeat(3, 1fr)",
+          "2xl": "repeat(4, 1fr)",
+        }}
+        gap="40px"
+      >
         <GridItem>
           <Card.Root
             role="group"
@@ -35,7 +43,9 @@ export default function Projects() {
             <Image
               src="crochet/dressCrochet.jpg"
               alt="Crochet Dress"
-              maxHeight="600px"
+              width="100%"
+              height="475px"
+              objectFit="cover"
             />
             <Card.Body gap="3">
               <Box>
@@ -91,7 +101,9 @@ export default function Projects() {
             <Image
               src="crochet/gdCrochet.jpg"
               alt="Green double couch with wooden legs"
-              maxHeight="600px"
+              width="100%"
+              height="475px"
+              objectFit="cover"
             />
             <Card.Body gap="3">
               <Box>
@@ -146,7 +158,9 @@ export default function Projects() {
             <Image
               src="crochet/set1Crochet.jpg"
               alt="Green double couch with wooden legs"
-              maxHeight="600px"
+              width="100%"
+              height="475px"
+              objectFit="cover"
             />
             <Card.Body gap="3">
               <Box>
@@ -201,7 +215,9 @@ export default function Projects() {
             <Image
               src="crochet/pianoCrochet.jpg"
               alt="Green double couch with wooden legs"
-              maxHeight="600px"
+              width="100%"
+              height="475px"
+              objectFit="cover"
             />
             <Card.Body gap="3">
               <Box>

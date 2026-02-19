@@ -1,14 +1,21 @@
 "use client";
 
-import { Flex, Heading, Switch } from "@chakra-ui/react";
+import { Flex, Heading, Box, FlexProps } from "@chakra-ui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MenuButton from "./MenuButton";
 
-export default function Navigation() {
+export default function Navigation(props: FlexProps) {
   const pathname = usePathname();
   const navigation = ["Projects", "Crochet", "Contact"];
   return (
-    <Flex id="gn-navigation" px="20" py="10" justifyContent="space-between">
+    <Flex
+      id="gn-navigation"
+      px={{ base: "10", md: "20" }}
+      p="10"
+      justifyContent="space-between"
+      {...props}
+    >
       <Link href="/">
         <Heading
           size="4xl"
@@ -23,7 +30,7 @@ export default function Navigation() {
           Gabriela Nirmal
         </Heading>
       </Link>
-      <Flex gap="10">
+      <Flex gap="10" display={{ base: "none", md: "flex" }}>
         {navigation.map((link: string) => (
           <Link href={`/${link.toLowerCase()}`} key={link}>
             <Heading
@@ -45,6 +52,9 @@ export default function Navigation() {
           </Link>
         ))}
       </Flex>
+      <Box display={{ base: "block", md: "none" }}>
+        <MenuButton />
+      </Box>
     </Flex>
   );
 }

@@ -1,15 +1,11 @@
-import { Box, Flex, Text, Icon, Heading } from "@chakra-ui/react";
-import Link from "next/link";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { FaLinkedinIn } from "react-icons/fa6";
-import { IoLogoGithub } from "react-icons/io";
+import { Box, Flex, Text, Heading } from "@chakra-ui/react";
 import InfoButtons from "./InfoButtons";
 
 export default function Home() {
   return (
-    <Box id="gn-home" px="20" py="10">
+    <Box id="gn-home" px={{ base: "10", md: "20" }} py="10">
       {/* Intro Para */}
-      <Flex pt="200px" direction="column" gap="6">
+      <Flex pt={{ base: "25px", md: "200px" }} direction="column" gap="6">
         <Heading size="6xl">Welcome</Heading>
         <Text textStyle="xl" maxWidth="750px" borderLeft="4px solid" pl="4">
           I'm a <strong>Computer Science</strong> major with a concentration in{" "}
