@@ -16,10 +16,7 @@ export default function InfoButtons(props: FlexProps) {
         _hover={{ bgColor: "var(--foreground)", color: "var(--link-hover)" }}
         transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out"
       >
-        <Link
-          href="https://drive.google.com/file/d/1wD7HQ_lt2xDcgPdkkGEqXFcRyG7N9sWF/view?usp=sharing"
-          target="_blank"
-        >
+        <Link href="resume.pdf" target="_blank">
           <Icon boxSize="3rem">
             <IoDocumentTextOutline />
           </Icon>
