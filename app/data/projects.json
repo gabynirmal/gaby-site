@@ -17,8 +17,30 @@
     "title": "Canvas Recreation",
     "techStack": "TypeScript, React, Bootstrap",
     "description": "A recreation of Canvas for teachers.",
-    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
+    "image": "canvas-cover.png",
     "githubLink": "https://github.com/gabynirmal/kambaz-next-js",
     "vercelLink": "https://kambaz-next-js-git-a3-gabriela-nirmals-projects.vercel.app"
+  },
+  {
+    "title": "Crochet Pattern Generation Interface",
+    "techStack": "TypeScript, React, Chakra UI",
+    "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
+    "image": "crochet-pattern-cover.png",
+    "githubLink": "https://github.com/gabynirmal/crochet-pattern"
+  },
+  {
+    "title": "Wordle Recreation",
+    "techStack": "Vanilla JavaScript, HTML, CSS",
+    "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
+    "image": "wordle-cover.png",
+    "githubLink": "https://github.com/gabynirmal/wordle",
+    "vercelLink": "https://gabynirmal.github.io/wordle/"
+  },
+  {
+    "title": "Love Detector",
+    "techStack": "Vanilla JavaScript, HTML, CSS",
+    "description": "Are you a TRUE match? Come and find out!",
+    "image": "love-detector-cover.png",
+    "githubLink": "https://github.com/gabynirmal/love-detector"
   }
 ]

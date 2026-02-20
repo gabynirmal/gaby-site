@@ -17,13 +17,12 @@ import * as db from "../data";
 export default function Projects() {
   const crochet = db.crochet;
   return (
-    <Box id="gn-projects" px="20" py="10">
+    <Flex id="gn-projects" px="20" py="10" justifyContent="center">
       <Grid
         templateColumns={{
-          base: "repeat(1, fr)",
-          lg: "repeat(2, 1fr)",
-          xl: "repeat(3, 1fr)",
-          "2xl": "repeat(4, 1fr)",
+          base: "repeat(1, 450px)",
+          lg: "repeat(2, 475px)",
+          "2xl": "repeat(3, 480px)",
         }}
         gap="40px"
       >
@@ -82,6 +81,6 @@ export default function Projects() {
           </GridItem>
         ))}
       </Grid>
-    </Box>
+    </Flex>
   );
 }
