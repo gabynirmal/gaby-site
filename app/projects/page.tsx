@@ -48,14 +48,19 @@ export default function Projects() {
   }, [projects.length]);
 
   return (
-    <Flex id="gn-projects" px="20" py="10" justifyContent="center">
+    <Flex
+      id="gn-projects"
+      px={{ base: "10", md: "20" }}
+      py={{ base: "0", md: "10" }}
+      justifyContent="center"
+    >
       <Grid
         templateColumns={{
-          base: "repeat(1, 1fr)",
-          lg: "repeat(2, 1fr)",
-          "2xl": "repeat(3, 1fr)",
+          base: "repeat(1, 375px)",
+          md: "repeat(2, 375px)",
+          lg: "repeat(2, 475px)",
+          "2xl": "repeat(3, 480px)",
         }}
-        justifyContent="space-between"
         gap="40px"
       >
         {projects.map((project, i) => (
@@ -93,7 +98,9 @@ export default function Projects() {
                   <Text textStyle="lg" fontWeight="medium" mt="2">
                     {project.techStack}
                   </Text>
-                  {singleLineMap[i] && <Text h="1lh" textStyle="3xl" />}
+                  {singleLineMap[i] && (
+                    <Text display={["none", "block"]} h="1lh" textStyle="3xl" />
+                  )}
                 </Box>
                 <Card.Description
                   textStyle="lg"
@@ -101,7 +108,7 @@ export default function Projects() {
                   letterSpacing="tight"
                   mt="2"
                   color="var(--link-hover)"
-                  minH="4lh"
+                  minH={[0, "4lh"]}
                 >
                   {project.description}
                 </Card.Description>

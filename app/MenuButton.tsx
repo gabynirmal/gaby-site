@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Flex,
-  Icon,
-  Drawer,
-  Portal,
-  CloseButton,
-  Button,
-  Box,
-  Heading,
-} from "@chakra-ui/react";
+import { Flex, Icon, Button, Heading } from "@chakra-ui/react";
 import Link from "next/link";
 import { IoIosMenu, IoIosClose } from "react-icons/io";
 import { useState } from "react";
@@ -27,7 +18,7 @@ export default function MenuButton() {
         position="fixed"
         top="0"
         left="0"
-        bgColor="var(--link-hover)"
+        bgColor="var(--foreground)"
         justifyContent="center"
         alignItems="center"
         direction="column"
@@ -46,9 +37,16 @@ export default function MenuButton() {
           right="10"
           boxSize="60px"
           borderRadius="full"
-          bgColor="var(--foreground)"
-          color="var(--link-hover)"
-          _active={{ bgColor: "var(--foreground)", color: "var(--link-hover)" }}
+          bgColor="var(--link-hover-opp)"
+          color="var(--background)"
+          _hover={{
+            color: "var(--link-hover-opp)",
+            bgColor: "var(--background)",
+          }}
+          _active={{
+            color: "var(--link-hover-opp)",
+            bgColor: "var(--background)",
+          }}
           transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out opacity 0.3s ease-in-out"
           opacity={isMenuOpen ? 1 : 0}
           pointerEvents={isMenuOpen ? "auto" : "none"}
@@ -69,12 +67,12 @@ export default function MenuButton() {
               color={
                 pathname.includes(link.toLowerCase())
                   ? "var(--emphasis)"
-                  : "var(--foreground)"
+                  : "var(--background)"
               }
               _hover={
                 pathname.includes(link.toLowerCase())
                   ? { color: "var(--emphasis)" }
-                  : { color: "var(--link-hover)" }
+                  : { color: "var(--link-hover-opp)" }
               }
               transition="color 0.2s ease-in-out"
             >
@@ -91,6 +89,7 @@ export default function MenuButton() {
         borderRadius="full"
         bgColor="var(--link-hover)"
         color="var(--foreground)"
+        _hover={{ bgColor: "var(--foreground)", color: "var(--link-hover)" }}
         _active={{ bgColor: "var(--foreground)", color: "var(--link-hover)" }}
         transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out opacity 0.3s ease-in-out"
         opacity={isMenuOpen ? 0 : 1}

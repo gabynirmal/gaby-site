@@ -2,24 +2,15 @@
   --background: #ffead0;
   --foreground: #093a3e;
   --link-hover: rgba(149, 167, 141, 0.75);
-  --link-hover-opp: #968269;
+  --link-hover-opp: rgba(150, 130, 105, 0.75);
   --emphasis: #da7422;
 }
 
 :root.dark {
   --background: #093a3e;
   --foreground: #ffead0;
-  --link-hover: #968269;
+  --link-hover: rgba(150, 130, 105, 0.75);
   --link-hover-opp: rgba(149, 167, 141, 0.75);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    --background: #093a3e;
-    --foreground: #ffead0;
-    --link-hover: #968269;
-    --link-hover-opp: #95a78d;
-  }
 }
 
 body {

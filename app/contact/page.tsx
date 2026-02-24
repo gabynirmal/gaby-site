@@ -61,16 +61,25 @@ export default function Contact() {
   return (
     <Flex
       id="gn-contact"
-      px="20"
-      py="10"
+      px={{ base: "10", md: "20" }}
+      py={{ base: "0", md: "10" }}
       alignItems="center"
       justifyContent="center"
       direction={{ base: "column-reverse", md: "row" }}
       gap={{ base: "10", md: "20" }}
+      w="100%"
     >
-      <InfoButtons direction={{ base: "row", md: "column" }} px="90px" />
+      <InfoButtons
+        direction={{ base: "row", md: "column" }}
+        px="90px"
+        mb="20"
+      />
       <form onSubmit={formik.handleSubmit}>
-        <Flex direction="column" gap="4" minW="500px">
+        <Flex
+          direction="column"
+          gap="4"
+          minW={{ base: "90vw", sm: "400px", md: "500px" }}
+        >
           <Field.Root required>
             <Field.Label textStyle="xl">
               Name <Field.RequiredIndicator />

@@ -3,7 +3,11 @@ import InfoButtons from "./InfoButtons";
 
 export default function Home() {
   return (
-    <Box id="gn-home" px={{ base: "10", md: "20" }} py="10">
+    <Box
+      id="gn-home"
+      px={{ base: "10", md: "20" }}
+      py={{ base: "0", md: "10" }}
+    >
       {/* Intro Para */}
       <Flex pt={{ base: "25px", md: "200px" }} direction="column" gap="6">
         <Heading size="6xl">Welcome</Heading>

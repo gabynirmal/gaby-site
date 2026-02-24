@@ -17,10 +17,16 @@ import * as db from "../data";
 export default function Projects() {
   const crochet = db.crochet;
   return (
-    <Flex id="gn-projects" px="20" py="10" justifyContent="center">
+    <Flex
+      id="gn-projects"
+      px={{ base: "10", md: "20" }}
+      py={{ base: "0", md: "10" }}
+      justifyContent="center"
+    >
       <Grid
         templateColumns={{
-          base: "repeat(1, 450px)",
+          base: "repeat(1, 375px)",
+          md: "repeat(2, 375px)",
           lg: "repeat(2, 475px)",
           "2xl": "repeat(3, 480px)",
         }}
@@ -50,7 +56,7 @@ export default function Projects() {
               />
               <Card.Body gap="3">
                 <Box>
-                  <Card.Title textStyle="3xl" minH="2lh">
+                  <Card.Title textStyle="3xl" minH={["1lh", "2lh"]}>
                     {item.title}
                   </Card.Title>
                 </Box>
