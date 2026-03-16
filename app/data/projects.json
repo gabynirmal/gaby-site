@@ -31,7 +31,7 @@
   {
     "title": "Wordle Recreation",
     "techStack": "Vanilla JavaScript, HTML, CSS",
-    "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
+    "description": "This is a recreation of Wordle which behaves exactly the same way as the NYT original.",
     "image": "wordle-cover.png",
     "githubLink": "https://github.com/gabynirmal/wordle",
     "vercelLink": "https://gabynirmal.github.io/wordle/"
