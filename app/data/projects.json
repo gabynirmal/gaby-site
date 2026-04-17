@@ -1,23 +1,31 @@
 [
   {
+    "title": "Improving PCOS Diagnosis through MLP, CNN, and Bayesian Models",
+    "techStack": "Python, R, Keras, MLP, CNN, Bayesian Logistic Regression",
+    "description": "",
+    "image": "projects/pcos-diagnosis-cover.jpg",
+    "githubLink": "https://github.com/gabynirmal/pcos-analysis",
+    "vercelLink": "https://pcos-analysis.streamlit.app/"
+  },
+  {
     "title": "Zara Sales Analysis",
     "techStack": "Python, NumPy, Pandas",
     "description": "Predictive machine learning model that forecasts item profitability based on features like seasonality, promotional status, and in-store placement.",
-    "image": "zara-dark.jpg",
+    "image": "projects/zara-dark.jpg",
     "githubLink": "https://github.com/gabynirmal/zara-sales-analysis"
   },
   {
     "title": "Image-Based Textile Composition Classifier",
     "techStack": "Python, PyTorch, Numpy",
     "description": "ResNet-50-based Convolutional Neural Network which classifies fabric compositions from high-resolution clothing images.",
-    "image": "ibtcc-cover.jpg",
+    "image": "projects/ibtcc-cover.jpg",
     "githubLink": "https://github.com/gabynirmal/fabric-composition-detector"
   },
   {
     "title": "Canvas Recreation",
     "techStack": "TypeScript, React, Bootstrap",
     "description": "A recreation of Canvas for teachers.",
-    "image": "canvas-cover.png",
+    "image": "projects/canvas-cover.png",
     "githubLink": "https://github.com/gabynirmal/kambaz-next-js",
     "vercelLink": "https://kambaz-next-js-git-a3-gabriela-nirmals-projects.vercel.app"
   },
@@ -25,14 +33,14 @@
     "title": "Crochet Pattern Generation Interface",
     "techStack": "TypeScript, React, Chakra UI",
     "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
-    "image": "crochet-pattern-cover.png",
+    "image": "projects/crochet-pattern-cover.png",
     "githubLink": "https://github.com/gabynirmal/crochet-pattern"
   },
   {
     "title": "Wordle Recreation",
     "techStack": "Vanilla JavaScript, HTML, CSS",
     "description": "This is a recreation of Wordle which behaves exactly the same way as the NYT original.",
-    "image": "wordle-cover.png",
+    "image": "projects/wordle-cover.png",
     "githubLink": "https://github.com/gabynirmal/wordle",
     "vercelLink": "https://gabynirmal.github.io/wordle/"
   },
@@ -40,7 +48,7 @@
     "title": "Love Detector",
     "techStack": "Vanilla JavaScript, HTML, CSS",
     "description": "Are you a TRUE match? Come and find out!",
-    "image": "love-detector-cover.png",
+    "image": "projects/love-detector-cover.png",
     "githubLink": "https://github.com/gabynirmal/love-detector"
   }
 ]
