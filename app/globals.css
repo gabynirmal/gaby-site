@@ -1,16 +1,23 @@
 :root {
-  --background: #ffead0;
-  --foreground: #093a3e;
-  --link-hover: rgba(149, 167, 141, 0.75);
-  --link-hover-opp: rgba(150, 130, 105, 0.75);
-  --emphasis: #da7422;
+  /* Warm cream base with dark burgundy text & olive green headers */
+  --background: #f5eedf;
+  --foreground: #4a1228; /* Deep Magenta / Burgundy */
+  --emphasis: #556b2f; /* Olive Green */
+
+  /* Icon / Link Hover Tones */
+  --link-hover: rgba(74, 18, 40, 0.75); /* Darker Magenta tone */
+  --link-hover-opp: rgba(107, 128, 70, 0.75); /* Lighter Olive tone */
 }
 
 :root.dark {
-  --background: #093a3e;
-  --foreground: #ffead0;
-  --link-hover: rgba(150, 130, 105, 0.75);
-  --link-hover-opp: rgba(149, 167, 141, 0.75);
+  /* Rich deep magenta base with light olive text & olive green headers */
+  --background: #2b0b18; /* Deep Magenta Canvas */
+  --foreground: #d0dac2; /* Light Olive / Sage Text */
+  --emphasis: #8a9a5b; /* Olive Green Header */
+
+  /* Icon / Link Hover Tones for Dark Mode */
+  --link-hover: rgba(74, 18, 40, 0.85); /* Darker Magenta tone */
+  --link-hover-opp: rgba(208, 218, 194, 0.75); /* Lighter Olive tone */
 }
 
 body {
