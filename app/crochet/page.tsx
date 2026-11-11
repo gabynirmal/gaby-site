@@ -1,92 +1,115 @@
 "use client";
 
-import {
-  Box,
-  Flex,
-  Text,
-  Icon,
-  Grid,
-  GridItem,
-  Card,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Image } from "@chakra-ui/react";
 import Link from "next/link";
-import { FaInstagram } from "react-icons/fa6";
+import { useState } from "react";
 import * as db from "../data";
 
-export default function Projects() {
+export default function Crochet() {
   const crochet = db.crochet;
+  const [active, setActive] = useState(0);
+
   return (
-    <Flex
-      id="gn-projects"
-      px={{ base: "10", md: "20" }}
-      py={{ base: "0", md: "10" }}
-      justifyContent="center"
+    <Box
+      id="gn-crochet"
+      px={{ base: 6, md: 10 }}
+      pt={{ base: 4, lg: 18 }}
+      pb="24"
     >
-      <Grid
-        templateColumns={{
-          base: "repeat(1, 375px)",
-          md: "repeat(2, 375px)",
-          lg: "repeat(2, 475px)",
-          "2xl": "repeat(3, 480px)",
-        }}
-        gap="40px"
+      <Flex
+        direction={{ base: "column", lg: "row" }}
+        justify="space-between"
+        align="flex-start"
+        gap={{ base: 0, lg: "80px" }}
       >
-        {crochet.map((item) => (
-          <GridItem key={item.title}>
-            <Card.Root
-              role="group"
-              maxW="xl"
-              overflow="hidden"
-              bgColor="var(--foreground)"
-              color="var(--background)"
-              borderRadius="30px"
-              boxShadow="0 8px 24px rgba(0, 0, 0, 0.1)"
-              transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-              _hover={{
-                transform: "scale(1.03)",
-                boxShadow: "0 16px 24px rgba(0, 0, 0, 0.15)",
-              }}
+        {/* Piece index */}
+        <Box
+          as="ul"
+          flex="1"
+          minW="0"
+          w={{ base: "100%", lg: "auto" }}
+          listStyleType="none"
+          m="0"
+          p="0"
+          borderBottom="1px solid var(--line)"
+        >
+          {crochet.map((item, i) => (
+            <Box
+              as="li"
+              key={item.title}
+              pb="16"
+              opacity={{ base: 1, lg: i === active ? 1 : 0.65 }}
+              transition="opacity 0.25s ease"
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
             >
+              {/* Mobile only: the preview panel is hidden below lg */}
               <Image
-                src={`crochet/${item.image}`}
-                alt="Crochet Dress"
-                width="100%"
-                height="500px"
+                src={`/crochet/${item.image}`}
+                alt={item.title}
+                display={{ base: "block", lg: "none" }}
+                w="100%"
+                objectFit="cover"
+                borderRadius="14px"
+                mb="5"
               />
-              <Card.Body gap="3">
-                <Box>
-                  <Card.Title textStyle="3xl" minH={["1lh", "2lh"]}>
-                    {item.title}
-                  </Card.Title>
-                </Box>
-              </Card.Body>
-              <Card.Footer gap="2" justifyContent="flex-end">
-                <Flex
-                  as="button"
-                  alignItems="center"
-                  justifyContent="center"
-                  boxSize="50px"
-                  borderRadius="full"
-                  bgColor="var(--link-hover-opp)"
-                  color="var(--background)"
-                  _hover={{
-                    bgColor: "var(--background)",
-                    color: "var(--link-hover-opp)",
-                  }}
-                  transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out"
-                >
-                  <Link href={item.link} target="_blank">
-                    <Icon boxSize="2rem">
-                      <FaInstagram />
-                    </Icon>
-                  </Link>
-                </Flex>
-              </Card.Footer>
-            </Card.Root>
-          </GridItem>
-        ))}
-      </Grid>
-    </Flex>
+              <Heading
+                as="h2"
+                fontSize={{ base: "3xl", xl: "5xl" }}
+                lineHeight="1.08"
+                letterSpacing="-0.025em"
+                fontWeight="semibold"
+                textWrap="balance"
+              >
+                {item.title}
+              </Heading>
+              <Flex mt="5">
+                <Link href={item.link} target="_blank" className="text-link">
+                  Instagram
+                </Link>
+              </Flex>
+            </Box>
+          ))}
+        </Box>
+
+        {/* Sticky preview: desktop only, centered in the right column */}
+        <Flex
+          display={{ base: "none", lg: "flex" }}
+          flex="1"
+          minW="0"
+          justify="center"
+          alignSelf="stretch"
+        >
+          <Box
+            display="grid"
+            w="100%"
+            maxW="560px"
+            position="sticky"
+            top="10"
+            alignSelf="flex-start"
+            aria-hidden="true"
+          >
+            {crochet.map((item, i) => (
+              <Image
+                key={item.title}
+                src={`/crochet/${item.image}`}
+                alt=""
+                gridArea="1 / 1"
+                alignSelf="start"
+                w="100%"
+                h="auto"
+                maxH="calc(100vh - 80px)"
+                objectFit="contain"
+                objectPosition="top center"
+                borderRadius="22px"
+                border="1px solid var(--line)"
+                opacity={i === active ? 1 : 0}
+                transition="opacity 0.35s ease"
+              />
+            ))}
+          </Box>
+        </Flex>
+      </Flex>
+    </Box>
   );
 }

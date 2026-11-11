@@ -7,12 +7,13 @@ import MenuButton from "./MenuButton";
 
 export default function Navigation(props: FlexProps) {
   const pathname = usePathname();
-  const navigation = ["Projects", "Crochet", "Contact"];
+  const navigation = ["Experience", "Projects", "Crochet", "Contact"];
   return (
     <Flex
       id="gn-navigation"
-      px={{ base: "10", md: "20" }}
-      p="10"
+      px={{ base: 6, md: 10 }}
+      py="6"
+      alignItems="center"
       justifyContent="space-between"
       {...props}
     >
@@ -23,7 +24,7 @@ export default function Navigation(props: FlexProps) {
           _hover={
             pathname === "/"
               ? { color: "var(--emphasis)" }
-              : { color: "var(--link-hover)" }
+              : { color: "var(--nav-hover)" }
           }
           transition="color 0.2s ease-in-out"
         >
@@ -43,7 +44,7 @@ export default function Navigation(props: FlexProps) {
               _hover={
                 pathname.includes(link.toLowerCase())
                   ? { color: "var(--emphasis)" }
-                  : { color: "var(--link-hover)" }
+                  : { color: "var(--nav-hover)" }
               }
               transition="color 0.2s ease-in-out"
             >

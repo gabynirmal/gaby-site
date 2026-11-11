@@ -1,166 +1,175 @@
 "use client";
 
-import {
-  Box,
-  Flex,
-  Text,
-  Icon,
-  Grid,
-  GridItem,
-  Card,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { IoLogoGithub } from "react-icons/io";
-import { IoLogoVercel } from "react-icons/io5";
+import { useState } from "react";
 import * as db from "../data";
-import { useRef, useState, useEffect } from "react";
+
+// Order here is the order the sections appear on the page.
+const GROUPS = [
+  { key: "frontend", label: "Frontend" },
+  { key: "ml", label: "Machine Learning" },
+];
 
 export default function Projects() {
   const projects = db.projects;
-  const titleRefs = useRef<(HTMLHeadingElement | null)[]>([]);
-  const [singleLineMap, setSingleLineMap] = useState<boolean[]>(() =>
-    Array(projects.length).fill(false),
-  );
-
-  useEffect(() => {
-    const observers: ResizeObserver[] = [];
-
-    titleRefs.current.forEach((el, i) => {
-      if (!el) return;
-
-      const check = () => {
-        const lh = parseFloat(getComputedStyle(el).lineHeight);
-        setSingleLineMap((prev) => {
-          const next = [...prev];
-          next[i] = el.offsetHeight <= lh + 1;
-          return next;
-        });
-      };
-
-      check();
-      const observer = new ResizeObserver(check);
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((o) => o.disconnect());
-  }, [projects.length]);
+  // `active` is an index into the full projects array, so the sticky
+  // preview works across both sections.
+  const [active, setActive] = useState(0);
 
   return (
-    <Flex
+    <Box
       id="gn-projects"
-      px={{ base: "10", md: "20" }}
-      py={{ base: "0", md: "10" }}
-      justifyContent="center"
+      px={{ base: 6, md: 10 }}
+      pt={{ base: 12, lg: 18 }}
+      pb="24"
     >
-      <Grid
-        templateColumns={{
-          base: "repeat(1, 375px)",
-          md: "repeat(2, 375px)",
-          lg: "repeat(2, 475px)",
-          "2xl": "repeat(3, 480px)",
-        }}
-        gap="40px"
+      <Flex
+        direction={{ base: "column", lg: "row" }}
+        justify="space-between"
+        align="flex-start"
+        gap={{ base: 0, lg: "80px" }}
       >
-        {projects.map((project, i) => (
-          <GridItem key={project.title} w="100%">
-            <Card.Root
-              w="100%"
-              mx="auto"
-              overflow="hidden"
-              bgColor="var(--foreground)"
-              color="var(--background)"
-              borderRadius="30px"
-              boxShadow="0 8px 24px rgba(0, 0, 0, 0.1)"
-              transition="transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-              _hover={{
-                transform: "scale(1.03)",
-                boxShadow: "0 16px 24px rgba(0, 0, 0, 0.15)",
-              }}
-            >
-              <Image
-                src={project.image}
-                alt={project.title}
-                maxHeight="350px"
-                objectFit="cover"
-              />
-              <Card.Body gap="3">
-                <Box>
-                  <Card.Title
-                    ref={(el) => {
-                      titleRefs.current[i] = el;
-                    }}
-                    textStyle="3xl"
-                  >
-                    {project.title}
-                  </Card.Title>
-                  <Text textStyle="lg" fontWeight="medium" mt="2">
-                    {project.techStack}
-                  </Text>
-                  {singleLineMap[i] && (
-                    <Text display={["none", "block"]} h="1lh" textStyle="3xl" />
-                  )}
-                </Box>
-                <Card.Description
-                  textStyle="lg"
+        {/* Project index, grouped by category */}
+        <Box flex="1" minW="0" w={{ base: "100%", lg: "auto" }}>
+          {GROUPS.map((group) => {
+            const items = projects
+              .map((project, i) => ({ project, i }))
+              .filter(({ project }) => project.category === group.key);
+
+            if (items.length === 0) return null;
+
+            return (
+              <Box as="section" key={group.key} mb="16" _last={{ mb: 0 }}>
+                <Heading
+                  as="h2"
+                  fontSize={{ base: "xl", lg: "2xl" }}
                   fontWeight="medium"
-                  letterSpacing="tight"
-                  mt="2"
-                  color="var(--link-hover)"
-                  minH={[0, "4lh"]}
+                  mb="8"
                 >
-                  {project.description}
-                </Card.Description>
-              </Card.Body>
-              <Card.Footer gap="2" justifyContent="flex-end">
-                {project.vercelLink && (
-                  <Flex
-                    as="button"
-                    alignItems="center"
-                    justifyContent="center"
-                    boxSize="50px"
-                    borderRadius="full"
-                    bgColor="var(--link-hover-opp)"
-                    color="var(--background)"
-                    _hover={{
-                      bgColor: "var(--background)",
-                      color: "var(--link-hover-opp)",
-                    }}
-                    transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out"
-                  >
-                    <Link href={project.vercelLink} target="_blank">
-                      <Icon boxSize="1.85rem" transform="translateY(-2px)">
-                        <IoLogoVercel />
-                      </Icon>
-                    </Link>
-                  </Flex>
-                )}
-                <Flex
-                  as="button"
-                  alignItems="center"
-                  justifyContent="center"
-                  boxSize="50px"
-                  borderRadius="full"
-                  bgColor="var(--link-hover-opp)"
-                  color="var(--background)"
-                  _hover={{
-                    bgColor: "var(--background)",
-                    color: "var(--link-hover-opp)",
-                  }}
-                  transition="background-color 0.2s ease-in-out, color 0.2s ease-in-out"
+                  {group.label}
+                </Heading>
+
+                <Box
+                  as="ul"
+                  listStyleType="none"
+                  m="0"
+                  p="0"
+                  borderBottom="1px solid var(--line)"
                 >
-                  <Link href={project.githubLink} target="_blank">
-                    <Icon boxSize="2rem">
-                      <IoLogoGithub />
-                    </Icon>
-                  </Link>
-                </Flex>
-              </Card.Footer>
-            </Card.Root>
-          </GridItem>
-        ))}
-      </Grid>
-    </Flex>
+                  {items.map(({ project, i }) => (
+                    <Box
+                      as="li"
+                      key={project.title}
+                      pb="16"
+                      opacity={{ base: 1, lg: i === active ? 1 : 0.65 }}
+                      transition="opacity 0.25s ease"
+                      onMouseEnter={() => setActive(i)}
+                      onFocus={() => setActive(i)}
+                    >
+                      {/* Mobile only: the preview panel is hidden below lg */}
+                      <Image
+                        src={project.image}
+                        alt=""
+                        display={{ base: "block", lg: "none" }}
+                        w="100%"
+                        objectFit="cover"
+                        borderRadius="14px"
+                        mb="5"
+                      />
+                      <Heading
+                        as="h3"
+                        fontSize={{ base: "3xl", xl: "4xl" }}
+                        lineHeight="1.08"
+                        letterSpacing="-0.025em"
+                        fontWeight="semibold"
+                        textWrap="balance"
+                      >
+                        {project.title}
+                      </Heading>
+                      <Text
+                        mt="3"
+                        color="var(--emphasis)"
+                        fontWeight="medium"
+                        fontSize="md"
+                      >
+                        {project.techStack}
+                      </Text>
+                      {project.description && (
+                        <Text
+                          mt="3.5"
+                          maxW="52ch"
+                          fontSize="md"
+                          lineHeight="1.6"
+                          opacity={0.8}
+                        >
+                          {project.description}
+                        </Text>
+                      )}
+                      <Flex gap="6" mt="5">
+                        {project.vercelLink && (
+                          <Link
+                            href={project.vercelLink}
+                            target="_blank"
+                            className="text-link"
+                          >
+                            Live demo
+                          </Link>
+                        )}
+                        <Link
+                          href={project.githubLink}
+                          target="_blank"
+                          className="text-link"
+                        >
+                          Code
+                        </Link>
+                      </Flex>
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            );
+          })}
+        </Box>
+
+        {/* Sticky preview: desktop only, centered in the right column */}
+        <Flex
+          display={{ base: "none", lg: "flex" }}
+          flex="1"
+          minW="0"
+          justify="center"
+          alignSelf="stretch"
+        >
+          <Box
+            display="grid"
+            w="100%"
+            maxW="800px"
+            position="sticky"
+            top="10"
+            alignSelf="flex-start"
+            aria-hidden="true"
+          >
+            {projects.map((project, i) => (
+              <Image
+                key={project.title}
+                src={project.image}
+                alt=""
+                gridArea="1 / 1"
+                alignSelf="start"
+                w="100%"
+                h="auto"
+                maxH="calc(100vh - 80px)"
+                objectFit="contain"
+                objectPosition="top center"
+                borderRadius="22px"
+                border="1px solid var(--line)"
+                opacity={i === active ? 1 : 0}
+                transition="opacity 0.35s ease"
+              />
+            ))}
+          </Box>
+        </Flex>
+      </Flex>
+    </Box>
   );
 }

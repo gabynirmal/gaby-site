@@ -5,50 +5,57 @@
     "description": "",
     "image": "projects/pcos-diagnosis-cover.jpg",
     "githubLink": "https://github.com/gabynirmal/pcos-analysis",
-    "vercelLink": "https://pcos-analysis.streamlit.app/"
+    "vercelLink": "https://pcos-analysis.streamlit.app/",
+    "category": "ml"
   },
   {
     "title": "Zara Sales Analysis",
     "techStack": "Python, NumPy, Pandas",
     "description": "Predictive machine learning model that forecasts item profitability based on features like seasonality, promotional status, and in-store placement.",
     "image": "projects/zara-dark.jpg",
-    "githubLink": "https://github.com/gabynirmal/zara-sales-analysis"
+    "githubLink": "https://github.com/gabynirmal/zara-sales-analysis",
+    "category": "ml"
   },
   {
     "title": "Image-Based Textile Composition Classifier",
     "techStack": "Python, PyTorch, Numpy",
     "description": "ResNet-50-based Convolutional Neural Network which classifies fabric compositions from high-resolution clothing images.",
     "image": "projects/ibtcc-cover.jpg",
-    "githubLink": "https://github.com/gabynirmal/fabric-composition-detector"
+    "githubLink": "https://github.com/gabynirmal/fabric-composition-detector",
+    "category": "ml"
   },
   {
     "title": "Canvas Recreation",
     "techStack": "TypeScript, React, Bootstrap",
-    "description": "A recreation of Canvas for teachers.",
+    "description": "A recreation of Canvas for teachers and students.",
     "image": "projects/canvas-cover.png",
     "githubLink": "https://github.com/gabynirmal/kambaz-next-js",
-    "vercelLink": "https://kambaz-next-js-git-quizzes-gabriela-nirmals-projects.vercel.app/"
+    "vercelLink": "https://kambaz-next-js-git-quizzes-gabriela-nirmals-projects.vercel.app/",
+    "category": "frontend"
   },
   {
     "title": "Crochet Pattern Generation Interface",
     "techStack": "TypeScript, React, Chakra UI",
     "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
     "image": "projects/crochet-pattern-cover.png",
-    "githubLink": "https://github.com/gabynirmal/crochet-pattern"
+    "githubLink": "https://github.com/gabynirmal/crochet-pattern",
+    "category": "frontend"
   },
   {
     "title": "Wordle Recreation",
     "techStack": "Vanilla JavaScript, HTML, CSS",
-    "description": "This is a recreation of Wordle which behaves exactly the same way as the NYT original.",
+    "description": "A recreation of Wordle which behaves exactly the same way as the NYT original.",
     "image": "projects/wordle-cover.png",
     "githubLink": "https://github.com/gabynirmal/wordle",
-    "vercelLink": "https://gabynirmal.github.io/wordle/"
+    "vercelLink": "https://gabynirmal.github.io/wordle/",
+    "category": "frontend"
   },
   {
     "title": "Love Detector",
     "techStack": "Vanilla JavaScript, HTML, CSS",
     "description": "Are you a TRUE match? Come and find out!",
     "image": "projects/love-detector-cover.png",
-    "githubLink": "https://github.com/gabynirmal/love-detector"
+    "githubLink": "https://github.com/gabynirmal/love-detector",
+    "category": "frontend"
   }
 ]
