@@ -25,6 +25,14 @@
     "category": "ml"
   },
   {
+    "title": "Crochet Pattern Generation Interface",
+    "techStack": "TypeScript, React, Chakra UI",
+    "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
+    "image": "projects/crochet-pattern-cover.png",
+    "githubLink": "https://github.com/gabynirmal/crochet-pattern",
+    "category": "frontend"
+  },
+  {
     "title": "Canvas Recreation",
     "techStack": "TypeScript, React, Bootstrap",
     "description": "A recreation of Canvas for teachers and students.",
@@ -33,14 +41,7 @@
     "vercelLink": "https://kambaz-next-js-git-quizzes-gabriela-nirmals-projects.vercel.app/",
     "category": "frontend"
   },
-  {
-    "title": "Crochet Pattern Generation Interface",
-    "techStack": "TypeScript, React, Chakra UI",
-    "description": "This web app allows users to create crochet or knit patterns and designs. You can pick how many rows and columns are needed for your project, then you can color in this grid however you please to create fun designs.",
-    "image": "projects/crochet-pattern-cover.png",
-    "githubLink": "https://github.com/gabynirmal/crochet-pattern",
-    "category": "frontend"
-  },
+
   {
     "title": "Wordle Recreation",
     "techStack": "Vanilla JavaScript, HTML, CSS",

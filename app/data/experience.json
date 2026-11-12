@@ -13,29 +13,29 @@
     "techStack": "TypeScript, JavaScript, React, Tailwind CSS, Storybook"
   },
   {
-    "company": "The Avenue",
-    "role": "Web Developer",
-    "location": "Boston, MA",
-    "dates": "Jan 2026 – Present",
-    "image": "",
-    "highlights": [
-      "Redesigned the fashion magazine’s site into a high-end editorial look",
-      "Wrote custom HTML and CSS in Squarespace to go beyond what templates allow",
-      "Restructured the site so new articles flow in automatically and every page stays consistent"
-    ],
-    "techStack": "HTML, CSS, UI/UX Design, Squarespace"
-  },
-  {
     "company": "Vimeo",
     "role": "Frontend Platform Co-op",
     "location": "NYC, NY",
     "dates": "June 2025 – Nov 2025",
-    "image": "theAvenueHome.png",
+    "image": "",
     "highlights": [
       "Migrated core components in the Bokeh design system from Chakra UI v2 to v3",
       "Retired legacy hooks, styles, and components across 600+ files",
       "Moved legacy PHP pages to Next.js and built reusable components like AvatarGroup"
     ],
     "techStack": "TypeScript, React, Chakra UI, Next.js, Ark UI, Storybook"
+  },
+  {
+    "company": "The Avenue",
+    "role": "Web Developer",
+    "location": "Boston, MA",
+    "dates": "Jan 2026 – Present",
+    "image": "theAvenueHome.png",
+    "highlights": [
+      "Redesigned the fashion magazine’s site into a high-end editorial look",
+      "Wrote custom HTML and CSS in Squarespace to go beyond what templates allow",
+      "Restructured the site so new articles flow in automatically and every page stays consistent"
+    ],
+    "techStack": "HTML, CSS, UI/UX Design, Squarespace"
   }
 ]
